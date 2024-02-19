@@ -3,7 +3,10 @@ const videoElement = document.getElementById('video');
 let peerConnection;
 
 ws.onopen = () => {
-    console.log('Connected to the signaling server');
+    console.log("Viewer");
+    console.log('Viewer Connected to the signaling server');
+    // Send message identifying as a viewer
+    ws.send(JSON.stringify({ type: 'viewer' }));
 };
 
 ws.onerror = (error) => {
